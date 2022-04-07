@@ -12,8 +12,8 @@
 8. Extra information page which shows how long a seller has been a member on the website
 9. Rate an item based on customer's opinion (include short blurb about what they liked/didn't like related to product)
 10. A "Budget" tab which only shows items valued at $50 and under
-11. requirement
-12. requirement
+11. Depending on the day, a sale appears for specific items (Half-priced Wednesdays, Free Fridays)
+12. Option to see a zoomed-in view of the item by hovering over it with user's mouse
 
 ## Non-functional Requirements
 
