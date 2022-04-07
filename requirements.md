@@ -2,16 +2,16 @@
 
 ## Functional Requirements
 
-1. requirement
-2. requirement
-3. requirement
-4. requirement
-5. requirement
-6. requirement
-7. requirement
-8. requirement
-9. requirement
-10. requirement
+1. Inclusion of a "Search" Option for item (using barcode or key phrases)
+2. Each item having a "Quantity" tab next to it in case user wants more than one product
+3. Shipping and Handling estimation fees depending on user's location 
+4. Narrowed search results option depending on user's interests (toys, clothes, food, etc.)
+5. "New" icon appearing on screen when a new item has been listed
+6. Inclusion of coupons which allow for reduced prices (10%, 15%, etc.)
+7. Feedback option to receive reviews from customers
+8. Extra information page which shows how long a seller has been a member on the website
+9. Rate an item based on customer's opinion (include short blurb about what they liked/didn't like related to product)
+10. A "Budget" tab which only shows items valued at $50 and under
 11. requirement
 12. requirement
 
