@@ -1,17 +1,17 @@
-## <remove all of the example text and notes in < > such as this one>
+just as a side note I was thinking of amazon when I thought of most of these requirements
 
 ## Functional Requirements
 
-1. requirement
-2. requirement
-3. requirement
-4. requirement
-5. requirement
-6. requirement
-7. requirement
-8. requirement
-9. requirement
-10. requirement
+1. Users can gain points on their account from making purchases
+2. Users can spend those points on some sort of discounts
+3. Users can subscribe or pay a one time fee for perks like free shipping
+4. Users can make a wishlist of listings they might want to look at later
+5. Users can search for listings
+6. listings of the same item are posted on the same page (in other words no duplicate Listings)
+7. filter Listings by price or other constraints
+8. main page? featured items, patch notes, welcome sign
+9. timed listings? date of posting?
+10. History? Purchased, Sold, viewed, rated
 11. requirement
 12. requirement
 
