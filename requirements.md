@@ -24,36 +24,18 @@
 
 ## Use Cases
 
-1. Use Case Name (Should match functional requirement name)
-- **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+1. Search wishlist 
+- **Pre-condition:** User needs to be logged in
+                     User goto wishlist
+                     User search for item in search tab
 
-- **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
-
+- **Trigger:** User types item in search box
+               
 - **Primary Sequence:**
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Et sequi incidunt 
-  3. Quis aute iure reprehenderit
-  4. ... 
-  5. ...
-  6. ...
-  7. ...
-  8. ...
-  9. ...
-  10. <Try to stick to a max of 10 steps>
+  1. If item exsist in wishlist, show item to user
+  2. Else display item not found
 
-- **Primary Postconditions:** <can be a list or short description> 
+- **Primary Postconditions:** User finds item and decides whether or not to buy item
 
-- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
-
-- **Alternate Sequence <optional>:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
 2. Use Case Name (Should match functional requirement name)
    ...
