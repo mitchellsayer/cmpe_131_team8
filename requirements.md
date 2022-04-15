@@ -46,5 +46,16 @@
   1. user types information (firstname, lastname, address, credit/debit card etc)
   2. user continues with checkout
 
-- **Primary Postconditions:**payment is processed and user is provided with confirmation, date/time of arrival
+- **Primary Postconditions:** payment is processed and user is provided with confirmation, date/time of arrival
+
+3. Remove item
+- **Pre-condition:** User needs to be logged in
+                     User needs to be at checkout
+
+- **Trigger:** User clicks remove 
+               
+- **Primary Sequence:**
+  1. Specific item is removed from users list
+
+- **Primary Postconditions:** User checkout list gets updated with the specific item removed
 
