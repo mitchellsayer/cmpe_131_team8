@@ -9,6 +9,11 @@
 1. created team repo (including meetings, readme, requirements files)
 2. discussed dividing up projects features for website
 
+### 2022-04-14 at 2:00
+-Attendees: Muhammad, Matthew, Zander
+-Tasks:
+1. discussed functional requirements
+
 ### 2022-04-22 at 10:30
 
 ### 2022-04-29 at 10:30
