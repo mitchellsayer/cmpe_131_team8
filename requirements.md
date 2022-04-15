@@ -9,11 +9,11 @@
 5. Provide shipping free if a certain amont of total is reached
 6. Provide sellers contact information 
 7. feedback on item for seller
-8. Connect to Google search API
+8. Connect to Google search or calender API
 9. Price control for user to select from $0 - $x
 10. check availability of item
-11. requirement
-12. requirement
+11. buy item ( with randomised fake card)
+12. Display User profile
 
 ## Non-functional Requirements
 
