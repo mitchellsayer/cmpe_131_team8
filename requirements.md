@@ -59,3 +59,11 @@
 
 - **Primary Postconditions:** User checkout list gets updated with the specific item removed
 
+4. Check History
+  **Pre-condition:** User needs to be logged in
+
+  **Trigger:** User clicks on  "History" tab/link
+  
+  **Primary Sequence:** System shows all past items brought
+
+  **Primary Postconditions:** User sees the items purchased in the past OR receives the message "No History Found"
