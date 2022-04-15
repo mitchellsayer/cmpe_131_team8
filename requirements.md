@@ -20,7 +20,7 @@
 1. Welcome page
 2. background image that relates to the website
 3. consistent theme
-4. non-functional
+4. consistent color scheme with buttons
 
 ## Use Cases
 
