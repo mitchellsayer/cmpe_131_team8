@@ -8,7 +8,7 @@
 4. Remove button at checkout for items
 5. Provide shipping free if a certain amont of total is reached
 6. Provide sellers contact information 
-7. requirement
+7. feedback on item for seller
 8. requirement
 9. requirement
 10. requirement
