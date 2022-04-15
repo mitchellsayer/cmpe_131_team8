@@ -17,7 +17,7 @@
 
 ## Non-functional Requirements
 
-1. non-functional
+1. Welcome page
 2. non-functional
 3. non-functional
 4. non-functional
