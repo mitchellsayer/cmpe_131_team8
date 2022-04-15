@@ -2,10 +2,10 @@
 
 ## Functional Requirements
 
-1. requirement
-2. requirement
-3. requirement
-4. requirement
+1. Points rewards system to earn points and use towards total amount
+2. Users personel wishlist
+3. Search through users wishlist to check if something is added or not 
+4. Remove button at checkout for items
 5. requirement
 6. requirement
 7. requirement
