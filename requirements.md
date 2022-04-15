@@ -6,7 +6,7 @@
 2. Users personel wishlist
 3. Search through users wishlist to check if something is added or not 
 4. Remove button at checkout for items
-5. requirement
+5. Provide shipping free if a certain amont of total is reached
 6. requirement
 7. requirement
 8. requirement
