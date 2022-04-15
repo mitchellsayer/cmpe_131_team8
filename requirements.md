@@ -10,7 +10,7 @@
 6. Provide sellers contact information 
 7. feedback on item for seller
 8. Connect to Google search API
-9. requirement
+9. Price control for user to select from $0 - $x
 10. requirement
 11. requirement
 12. requirement
