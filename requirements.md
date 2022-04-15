@@ -18,7 +18,7 @@
 ## Non-functional Requirements
 
 1. Welcome page
-2. bakground image that relates to the website
+2. background image that relates to the website
 3. consistent theme
 4. non-functional
 
