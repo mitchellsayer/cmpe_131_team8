@@ -37,5 +37,14 @@
 
 - **Primary Postconditions:** User finds item and decides whether or not to buy item
 
-2. Use Case Name (Should match functional requirement name)
-   ...
+2. buy item
+- **Pre-condition:** User needs to be logged in
+
+- **Trigger:** User goto checkout
+               
+- **Primary Sequence:**
+  1. user types information (firstname, lastname, address, credit/debit card etc)
+  2. user continues with checkout
+
+- **Primary Postconditions:**payment is processed and user is provided with confirmation, date/time of arrival
+
