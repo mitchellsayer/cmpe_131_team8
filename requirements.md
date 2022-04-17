@@ -60,20 +60,20 @@
 - **Primary Postconditions:** User checkout list gets updated with the specific item removed
 
 4. Check History
-  **Pre-condition:** User needs to be logged in
+-  **Pre-condition:** User needs to be logged in
 
-  **Trigger:** User clicks on  "History" tab/link
+-  **Trigger:** User clicks on  "History" tab/link
   
-  **Primary Sequence:** System shows all past items brought
+-  **Primary Sequence:** System shows all past items brought
 
-  **Primary Postconditions:** User sees the items purchased in the past OR receives the message "No History Found"
+-  **Primary Postconditions:** User sees the items purchased in the past OR receives the message "No History Found"
 
 5. Send Feedback
-   **Pre-condition:** User needs to be logged in
+-  **Pre-condition:** User needs to be logged in
                       User must have item in purchase history
    
-   **Trigger:** Click send Feedback
+-  **Trigger:** Click send Feedback
    
-   **Primary Sequence:** Email is sent to seller
+-  **Primary Sequence:** Email is sent to seller
    
-   **Primary Postconditions:** Massage shown to user that feedback sent
+-  **Primary Postconditions:** Massage shown to user that feedback sent
