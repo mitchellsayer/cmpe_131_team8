@@ -1,5 +1,3 @@
-## <remove all of the example text and notes in < > such as this one>
-
 ## Functional Requirements
 
 1. Points rewards system to earn points and use towards total amount
@@ -64,7 +62,8 @@
 
 -  **Trigger:** User clicks on  "History" tab/link
   
--  **Primary Sequence:** System shows all past items brought
+-  **Primary Sequence:** 
+    1. System shows all past items brought
 
 -  **Primary Postconditions:** User sees the items purchased in the past OR receives the message "No History Found"
 
@@ -74,6 +73,18 @@
    
 -  **Trigger:** Click send Feedback
    
--  **Primary Sequence:** Email is sent to seller
+-  **Primary Sequence:** 
+   1. Email is sent to seller
    
 -  **Primary Postconditions:** Massage shown to user that feedback sent
+
+6. Check availability
+-  **Pre-condition:** User needs to be logged in
+   
+-  **Trigger:** Click is available
+   
+-  **Primary Sequence:** 
+   1. Checks if item is available
+   
+-  **Primary Postconditions:** Indicates to user if item is available or not
+
