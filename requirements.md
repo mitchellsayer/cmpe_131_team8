@@ -67,3 +67,13 @@
   **Primary Sequence:** System shows all past items brought
 
   **Primary Postconditions:** User sees the items purchased in the past OR receives the message "No History Found"
+
+5. Send Feedback
+   **Pre-condition:** User needs to be logged in
+                      User must have item in purchase history
+   
+   **Trigger:** Click send Feedback
+   
+   **Primary Sequence:** Email is sent to seller
+   
+   **Primary Postconditions:** Massage shown to user that feedback sent
