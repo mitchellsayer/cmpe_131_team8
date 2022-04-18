@@ -1,5 +1,3 @@
-## Instructions
-  
 ## Meetings
 
 ### 2022-04-06 at 17:00
