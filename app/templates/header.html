@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title> NEED 2 CHANGE </title>
+	</head>
+	
+	<body>
+		<h2 style="color:#093657"> THE PROJECT </h2>
+		<a href="/login"> Login</a>
+		<hr>
+		{% with message = get_flashed_messages() %}
+		{% if message %}
+			<ul>
+				{% for i in message %}
+					<li> {{ i }} </li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+			{% endwith %}
+			
+		{% block content %}
+		
+		{% endblock %}
+	
+	</body>
+
+</html>
