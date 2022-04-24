@@ -5,12 +5,12 @@ from flask import redirect
 from app.forms import LoginForm
 
 
-@app.route('/home')
+@myapp.route('/home')
 def home():
     return redirect("/login")
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@myapp.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
