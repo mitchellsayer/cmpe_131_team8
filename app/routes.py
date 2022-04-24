@@ -5,7 +5,9 @@ from flask import redirect
 from app.forms import LoginForm
 
 
-@app.route('/')
+@app.route('/home')
+def home():
+    return "HOME PG"
 
 
 @app.route('/login', methods=['GET', 'POST'])
