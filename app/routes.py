@@ -16,5 +16,5 @@ def login():
     if form.validate_on_submit():
         if form.user_name.data == 'admin' and form.password.data == 'admin':
             flash('login Successful')
-            return redirect('/')
+            return redirect('/home')
     return render_template('login.html', form=form)
