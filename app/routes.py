@@ -7,7 +7,7 @@ from app.forms import LoginForm
 
 @app.route('/home')
 def home():
-    return "HOME PG"
+    return redirect("/login")
 
 
 @app.route('/login', methods=['GET', 'POST'])
