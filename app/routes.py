@@ -17,4 +17,4 @@ def login():
         if form.user_name.data == 'admin' and form.password.data == 'admin':
             flash('login Successful')
             return redirect('/home')
-    return render_template('login.html', form=form)
+    return render_template('form.html', form=form)
