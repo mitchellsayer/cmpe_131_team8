@@ -27,15 +27,18 @@
 	-All suggestions condensed down into a list of 10 functional, 4 non functional, and 6 use cases
 
 ### 2022-04-24-22 at 1:00 pm
--Attendees: Muhammad, Matthew, Zander
+-Attendees: Muhammad, Matthew, Zander, Mitchell
 
 -Tasks:
-1. Zander and Matthew both tried debugging "Login" issue from Muhammad's branch in repository
+1. Zander, Matthew, and Mitchell tried debugging "Login" issue from Muhammad's branch in repository
 	-We need more time to determine why URL is failing to load (suspected issue is from Muhammad's "routes.py" file
 2. Matthew filled out Gantt Chart sections pertaining to Functional/Non Functional Requirements, including "Planned Start","Actual Start", "Planned Duration" and "Actual Duration"
 	-Planned Duration for each requirement is expected to differ from Actual Duration (accounting for debugging issues with URLs, template inheritance, and routes
 	-Zander and Muhammad gave input on how "Period" section should be filled out
 3. Zander started filling out the "Title" and "Introduction" sections for "README.md" file
 	-More sections of file will be completed once our functions have been implemented fully
- 
+4. Mitchell began working on boiler plate code for entire team to use for functions
+5. As a team, we decided how to break up the tasks for the entire project
+	-Team Gantt Chart shows initials of our names next to each of our assigned tasks
+
 
