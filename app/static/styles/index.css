@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(157, 221, 249);
+}
+
+#outer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+#inner {
+    margin: auto;
+    text-align: center;
+}

@@ -27,6 +27,8 @@
 
 - **Trigger:** Shopper clicks on the "Search" tab on top of website page 
 
+- **Trigger:** User goto checkout
+               
 - **Primary Sequence:**
   1. Customer enters in a key word ("toys", "food", "clothes") to narrow down search
   2. System searches through all of the items from website to see if they match narrowed down search

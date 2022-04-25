@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% set active_page = "purchase" %}
+
+{% block title %}Purchase Item{% endblock %}
+
+{% block head %}
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles/purchase.css') }}">
+{% endblock %}
+
+{% block content %}
+    <!-- Add code for this page  here -->
+    <div id="outer" class="container">
+        <div id="inner">
+        <h1>Purchase Item</h1>
+        <p>Implement Item Purchase page. This includes automatic tax, credit card validation, quantity selection.</p>
+        </div>
+    </div>
+{% endblock %}

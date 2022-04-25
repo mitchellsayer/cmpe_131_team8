@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% set active_page = "listings" %}
+
+{% block title %}Listings{% endblock %}
+
+{% block head %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles/listings.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id="outer" class="container">
+  <div id="inner">
+    <h1>Available Listings</h1>
+    <p>Implement card-grid populated with all listings not posted by current user.</p>
+  </div>
+</div>
+{% endblock %}
