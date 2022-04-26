@@ -14,13 +14,16 @@ def profile():
     return render_template('profile.html', name=current_user.name)
 
 @main.route('/listings')
+@login_required
 def listings():
     return render_template('listings.html')
 
 @main.route('/new_listing')
+@login_required
 def new_listing():
     return render_template('new_listing.html')
 
 @main.route('/purchase')
+@login_required
 def purchase():
     return render_template('purchase.html')

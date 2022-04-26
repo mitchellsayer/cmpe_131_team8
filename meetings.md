@@ -21,4 +21,3 @@
 -Tasks:
 1. Made a final edit for our team requirements and uses cases
 2. Combined all of our ideas into the expected number set by rubric
-
