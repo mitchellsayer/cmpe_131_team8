@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% set active_page = "home" %}
+
+{% block title %}Home{% endblock %}
+
+{% block head %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles/index.css') }}">
+{% endblock %}
+
+{% block content %}
+  <div id="outer" class="container">
+    <div id="inner">
+      <h1>CMPE 131 Team 8 Project Site</h1>
+      <p>Welcome to our commerce application!</p>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% set active_page = "signup" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block head %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles/signup.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="signup-container">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <!-- Prompt user to login if account already exist -->
+            <div class="text-danger">
+                {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    <form method="POST" action="/signup">
+        <h2 class="text-center">Create New Account</h2>       
+        <div class="form-group">
+            <input type="text" class="form-control" name="email" placeholder="Email" required="required"/>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Name" required="required"/>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required="required"/>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+        </div>        
+    </form>
+</div>
+{% endblock %}

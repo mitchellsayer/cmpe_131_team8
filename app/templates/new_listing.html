@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% set active_page = "new_listing" %}
+
+{% block title %}New Listing{% endblock %}
+
+{% block head %}
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles/new_listing.css') }}">
+{% endblock %}
+
+{% block content %}
+    <!-- Add code for this page  here -->
+    <div id="outer" class="container">
+        <div id="inner">
+        <h1>New Listing</h1>
+        <p>Implement new listing form. This page will only be accessible by logged in users</p>
+        </div>
+    </div>
+{% endblock %}
