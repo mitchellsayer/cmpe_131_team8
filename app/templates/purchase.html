@@ -9,10 +9,26 @@
 
 {% block content %}
     <!-- Add code for this page  here -->
-    <div id="outer" class="container">
-        <div id="inner">
-        <h1>Purchase Item</h1>
-        <p>Implement Item Purchase page. This includes automatic tax, credit card validation, quantity selection.</p>
+    <div class ="row">
+        <div class="col-md-4 mx-auto justify-content-center">
+            <h1 id="purchase-title">Purchase Item</h1>
+            <p>How many items do you want?</p>
+            <div>
+                <label for="Quantity"> Quantity</label>
+                <select name="Quantity">
+                    <option value="0" selected disabled></option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option>
+                    <option value="6">Six</option>
+                    <option value="7">Seven</option>
+                    <option value="8">Eight</option>
+                    <option value="9">Nine</option>
+                    <option value="10">Ten</option>
+                </select>
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -61,3 +61,13 @@ def logout():
     # Logout user and return to homepage
     logout_user()
     return redirect(url_for('main.index'))
+
+@auth.route('/delete')
+@login_required
+def delete():
+    #User clicks "Delete Account" option which signs them out and redirects them to homepage
+    user = User.query.filter_by(id=User.id).first()
+    logout_user()
+    db.session.delete(User.id)
+    db.session.commit()
+    return redirect(url_for('index.html'))
