@@ -27,3 +27,10 @@ def new_listing():
 @login_required
 def purchase():
     return render_template('purchase.html')
+
+@main.route('/purchase', methods=['POST'])
+@login_required
+def purchase_post():
+    #Before final payment is paid for, an additional sales tax is included
+    total_checkout = total_price + (total_price *0.10)
+    return redirect(url_for('index.html'))

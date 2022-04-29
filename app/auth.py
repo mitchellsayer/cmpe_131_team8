@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 from .models import User
 from . import db
 
@@ -64,10 +64,16 @@ def logout():
 
 @auth.route('/delete')
 @login_required
-def delete():
+def delete():#pass current user into delete function
     #User clicks "Delete Account" option which signs them out and redirects them to homepage
-    user = User.query.filter_by(id=User.id).first()
+    userId=current_user.id
+    user = User.query.get(userId) #getting row which has primary key of user (user id) from database
     logout_user()
-    db.session.delete(User.id)
+    #userId=user.id
+    #print("You user id is...")
+    #print (str(userId) + "/t" + user.email + "\t" + user.name)
+    print(user)
+    db.session.delete(user)
     db.session.commit()
-    return redirect(url_for('index.html'))
+    return redirect(url_for('main.index'))
+    
