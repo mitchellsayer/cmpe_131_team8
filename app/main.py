@@ -8,16 +8,18 @@ main = Blueprint('main', __name__)
 def index():
     return render_template('index.html')
 
+#Zander
 @main.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', name=current_user.name)
+    return render_template('profile.html', name=current_user.name, email=current_user.email)
 
 @main.route('/listings')
 @login_required
 def listings():
     return render_template('listings.html')
 
+#Zander
 @main.route('/new_listing')
 @login_required
 def new_listing():

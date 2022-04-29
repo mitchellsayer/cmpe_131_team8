@@ -8,10 +8,16 @@
 {% endblock %}
 
 {% block content %}
-<div id="outer" class="container">
-  <div id="inner">
-    <h1>Hello, {{ name }}</h1>
-    <p>Add user listings, delete account features here</p>
+<div class="row">
+  <div class="border-right border-dark col-8">
+    <h1>Your Listings</h1>
+  </div>
+  <div class="border-left border-dark col-3">
+    <img id="profile" width="250px" height="250px" src="static/images/DefaultProfilePic2.jpg" class="img-responsive">
+    <h1>Hello, {{name}}!</h1>
+    <h1>Email: {{email}}</h1>
+    <a href="/delete">delete account</a>
+
   </div>
 </div>
 {% endblock %}

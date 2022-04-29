@@ -2,13 +2,11 @@ body {
     background-color: rgb(255, 203, 203);
 }
 
-#outer {
-    width: 100%;
-    height: 100vh;
-    display: flex;
+#right_col{
+    border: solid
 }
-
-#inner {
-    margin: auto;
-    text-align: center;
+#profile{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
