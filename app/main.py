@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 from flask_login import login_required, current_user
 from . import db
 
@@ -26,11 +26,12 @@ def new_listing():
 @main.route('/purchase')
 @login_required
 def purchase():
+    #compute initial sales tax here
+    #pass into render template
     return render_template('purchase.html')
 
 @main.route('/purchase', methods=['POST'])
 @login_required
 def purchase_post():
-    #Before final payment is paid for, an additional sales tax is included
-    total_checkout = total_price + (total_price *0.10)
-    return redirect(url_for('index.html'))
+    product_ID= request.form.get('product_ID')
+    return render_template()
