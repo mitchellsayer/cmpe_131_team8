@@ -33,5 +33,5 @@ def purchase():
 @main.route('/purchase', methods=['POST'])
 @login_required
 def purchase_post():
-    product_ID= request.form.get('product_ID')
+    productID= request.form.get('productID')
     return render_template()
