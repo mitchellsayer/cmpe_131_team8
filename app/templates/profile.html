@@ -12,6 +12,7 @@
   <div id="inner">
     <h1>Hello, {{ name }}</h1>
     <p>Add user listings, delete account features here</p>
+      <a href="{{ url_for('auth.delete') }}" class="btn btn-primary btn-lg active" role="button">delete</a>
   </div>
 </div>
-{% endblock %}
+{% endblock %} 
