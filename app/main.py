@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, url_for
 from flask_login import login_required, current_user
 from . import db
 
@@ -34,4 +34,4 @@ def purchase():
 @login_required
 def purchase_post():
     productID= request.form.get('productID')
-    return render_template()
+    return render_template(url_for('main.index'))
