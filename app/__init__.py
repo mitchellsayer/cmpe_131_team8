@@ -20,19 +20,23 @@ def create_app():
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
-    from .models import User
+    with app.app_context():
+        from .models import User, Listing
+        from .auth import auth as auth_blueprint
+        from .main import main as main_blueprint
 
-    @login_manager.user_loader
-    def load_user(user_id):
-        # user_id is primary key for Users table
-        return User.query.get(int(user_id))
+        @login_manager.user_loader
+        def load_user(user_id):
+            # user_id is primary key for Users table
+            return User.query.get(int(user_id))
 
-    # Blueprint for auth routes
-    from .auth import auth as auth_blueprint
-    app.register_blueprint(auth_blueprint)
+        # Blueprint for auth routes
+        app.register_blueprint(auth_blueprint)
 
-    # Blueprint for all other routes
-    from .main import main as main_blueprint
-    app.register_blueprint(main_blueprint)
+        # Blueprint for all other routes
+        app.register_blueprint(main_blueprint)
 
-    return app
+        # Create Database Models
+        db.create_all()
+
+        return app

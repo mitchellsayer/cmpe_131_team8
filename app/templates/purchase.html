@@ -8,11 +8,163 @@
 {% endblock %}
 
 {% block content %}
-    <!-- Add code for this page  here -->
-    <div id="outer" class="container">
-        <div id="inner">
-        <h1>Purchase Item</h1>
-        <p>Implement Item Purchase page. This includes automatic tax, credit card validation, quantity selection.</p>
+    <section class="h-100 h-custom">
+        <div class="container h-100 py-5">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+      
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="h3">Your Current Cart</th>
+                      <th scope="col">Item Name</th>
+                      <th scope="col">Brand</th>
+                      <th scope="col">Item Quantity</th>
+                      <th scope="col">Listing Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <div class="d-flex align-items-center">
+                          <img src="{{ url_for('static', filename=listing.image) }}" class="img-fluid rounded-3"
+                            style="width: 170px;" alt="LEGO">
+                        </div>
+                      </th>
+                      <td class="align-middle">
+                        <p class="mb-0 text-secondary" style="font-weight: 700;">{{ listing.name }}</p>
+                      </td>
+                      <td class="align-middle">
+                        <p class="mb-0 text-secondary" style="font-weight: 700;">{{ listing.brand }}</p>
+                      </td>
+                      <td class="align-middle">
+                        <div class="d-flex flex-row">
+                          <button class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                            <i class="fas fa-minus"></i>
+                          </button>
+      
+                          <input id="form1" min="0" name="quantity" value="1" type="number"
+                            class="form-control form-control-sm" style="width: 50px;" />
+      
+                          <button class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                            <i class="fas fa-plus"></i>
+                          </button>
+                        </div>
+                      </td>
+                      <td class="align-middle">
+                        <p class="mb-0 text-secondary" style="font-weight: 700;">${{ listing.price }}</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
+                <div class="card-body p-4">
+      
+                  <div class="row">
+                    <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
+                      <form>
+                        <div class="d-flex flex-row pb-3">
+                          <div class="d-flex align-items-center pe-2">
+                            <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1v"
+                              value="" aria-label="..." checked />
+                          </div>
+                          <div class="rounded border w-100 p-3">
+                            <p class="d-flex align-items-center mb-0">
+                              <i class="fab fa-cc-mastercard fa-2x text-dark pe-2"></i>Credit Card
+                            </p>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-row pb-3">
+                          <div class="d-flex align-items-center pe-2">
+                            <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel2v"
+                              value="" aria-label="..." />
+                          </div> 
+                          <div class="rounded border w-100 p-3">
+                             <p class="d-flex align-items-center mb-0">
+                              <i class="fab fa-cc-visa fa-2x fa-lg text-dark pe-2"></i>Debit Card
+                            </p>
+                          </div>
+                        </div>
+                         <div class="d-flex flex-row">
+                          <div class="d-flex align-items-center pe-2">
+                            <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel3v"
+                              value="" aria-label="..." />
+                          </div>
+                          <div class="rounded border w-100 p-3">
+                            <p class="d-flex align-items-center mb-0">
+                              <i class="fab fa-cc-paypal fa-2x fa-lg text-dark pe-2"></i>PayPal
+                            </p>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-6">
+                      <div class="row">
+                        <div class="col-12 col-xl-6">
+                          <div class="form-outline mb-4 mb-xl-5">
+                            <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                              placeholder="{{ current_user.name }}" />
+                            <label class="form-label" for="typeName">Card Owner</label>
+                          </div>
+      
+                            <div class="form-outline mb-4 mb-xl-5">
+                            <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/YY"
+                              size="7" id="exp" minlength="7" maxlength="7" />
+                            <label class="form-label" for="typeExp">Expiration Date</label>
+                          </div>
+                        </div>
+                        <div class="col-12 col-xl-6">
+                          <div class="form-outline mb-4 mb-xl-5">
+                            <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                              placeholder="191919221999" minlength="10" maxlength="15" />
+                            <label class="form-label" for="typeText">Card Number</label>
+                          </div>
+      
+                           <!-- <div class="form-outline mb-4 mb-xl-5">
+                            <input type="password" id="typeText" class="form-control form-control-lg"
+                              placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                            <label class="form-label" for="typeText">Cvv</label>
+                          </div> -->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-xl-3">
+                      <div class="d-flex justify-content-between" style="font-weight: 700;">
+                        <p class="mb-2">Subtotal:</p>
+                        <p class="mb-2">${{ listing.price }}</p>
+                      </div>
+      
+                      <div class="d-flex justify-content-between" style="font-weight: 700;">
+                        <p class="mb-0">Tax:</p>
+                        <p class="mb-0">${{tax}}</p>
+                      </div>
+      
+                      <hr class="my-4">
+      
+                      <div class="d-flex justify-content-between mb-4" style="font-weight: 700;">
+                        <p class="mb-2">Total (tax included):</p>
+                        <p class="mb-2">${{total}}</p>
+                      </div>
+      
+                      <button type="button" class="btn btn-success btn-block btn-lg">
+                        <div class="d-flex justify-content-between">
+                          <span>Payment Due:</span>
+                          <span>${{total}}</span>
+                        </div>
+                      </button>
+      
+                    </div>
+                  </div>
+      
+                </div>
+              </div>
+      
+            </div>
+          </div>
         </div>
-    </div>
+      </section>
 {% endblock %}
