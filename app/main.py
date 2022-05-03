@@ -35,9 +35,10 @@ def profile():
 @login_required
 def listings():
     flash_id = request.args.get('id')
-    other_listings = Listing.query.filter(Listing.userID == current_user.id)
+    # other_listings = Listing.query.filter(Listing.userID != current_user.id)
+    all_listings = Listing.query.all()
 
-    return render_template('listings.html', listings = other_listings, id=flash_id)
+    return render_template('listings.html', listings = all_listings, id=flash_id)
 
 @main.route('/new_listing')
 @login_required
