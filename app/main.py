@@ -78,11 +78,12 @@ def new_listing_post():
             price = float(price),
             image = filename,
             stock = int(stock))
+
     print(listing)
     db.session.add(listing)
     db.session.commit()
 
-    return redirect(url_for('main.profile'))
+    return redirect(url_for('main.listings'))
 
 @main.route('/purchase/<productID>')
 @login_required
