@@ -28,7 +28,7 @@
                     <tr>
                       <th scope="row">
                         <div class="d-flex align-items-center">
-                          <img src="{{ url_for('static', filename=listing.image) }}" class="img-fluid rounded-3"
+                          <img src="{{ url_for('static', filename='images/'+listing.image) }}" class="img-fluid rounded-3"
                             style="width: 170px;" alt="LEGO">
                         </div>
                       </th>
@@ -39,20 +39,7 @@
                         <p class="mb-0 text-secondary" style="font-weight: 700;">{{ listing.brand }}</p>
                       </td>
                       <td class="align-middle">
-                        <!-- <div class="d-flex flex-row">
-                          <button class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                            <i class="fas fa-minus"></i>
-                          </button>
-      
-                          <input id="form1" min="0" name="quantity" value="1" type="number"
-                            class="form-control form-control-sm" style="width: 50px;" />
-      
-                          <button class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                            <i class="fas fa-plus"></i>
-                          </button>
-                        </div> -->
+                        <p class="mb-0 text-secondary" style="font-weight: 700;">{{ totals['quantity'] }}</p>
                       </td>
                       <td class="align-middle">
                         <p class="mb-0 text-secondary" style="font-weight: 700;">${{ listing.price }}</p>
@@ -62,8 +49,7 @@
                 </table>
               </div>
               <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
-                <div class="card-body p-4">
-      
+                <div class="card-body" style="margin-bottom: -2em">
                   <div class="row">
                     <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
                       <form>
@@ -106,12 +92,11 @@
                       <div class="row">
                         <div class="col-12 col-xl-6">
                           <div class="form-outline mb-4 mb-xl-5">
-                            <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                            <input type="text" id="typeName" class="form-control form-control-lg" size="17"
                               placeholder="{{ current_user.name }}" />
                             <label class="form-label" for="typeName">Card Owner</label>
-                          </div>
-      
-                            <div class="form-outline mb-4 mb-xl-5">
+                          </div>      
+                          <div class="form-outline mb-4 mb-xl-5">
                             <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/YY"
                               size="7" id="exp" minlength="7" maxlength="7" />
                             <label class="form-label" for="typeExp">Expiration Date</label>
@@ -119,50 +104,41 @@
                         </div>
                         <div class="col-12 col-xl-6">
                           <div class="form-outline mb-4 mb-xl-5">
-                            <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                            <input type="text" id="typeText" class="form-control form-control-lg" size="17"
                               placeholder="191919221999" minlength="10" maxlength="15" />
                             <label class="form-label" for="typeText">Card Number</label>
                           </div>
-      
-                           <!-- <div class="form-outline mb-4 mb-xl-5">
-                            <input type="password" id="typeText" class="form-control form-control-lg"
-                              placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
-                            <label class="form-label" for="typeText">Cvv</label>
-                          </div> -->
                         </div>
                       </div>
                     </div>
                     <div class="col-lg-4 col-xl-3">
                       <div class="d-flex justify-content-between" style="font-weight: 700;">
                         <p class="mb-2">Subtotal:</p>
-                        <p class="mb-2">${{ listing.price }}</p>
+                        <p class="mb-2">${{ totals['subtotal'] }}</p>
                       </div>
       
                       <div class="d-flex justify-content-between" style="font-weight: 700;">
                         <p class="mb-0">Tax:</p>
-                        <p class="mb-0">${{tax}}</p>
+                        <p class="mb-0">${{ totals['tax'] }}</p>
                       </div>
       
                       <hr class="my-4">
       
                       <div class="d-flex justify-content-between mb-4" style="font-weight: 700;">
                         <p class="mb-2">Total (tax included):</p>
-                        <p class="mb-2">${{total}}</p>
+                        <p class="mb-2">${{ totals['total'] }}</p>
                       </div>
       
                       <button type="button" class="btn btn-success btn-block btn-lg">
                         <div class="d-flex justify-content-between">
-                          <span>Payment Due:</span>
-                          <span>${{total}}</span>
+                          <span>Purchase Now</span>
+                          <span>${{ totals['total'] }}</span>
                         </div>
                       </button>
-      
                     </div>
                   </div>
-      
                 </div>
               </div>
-      
             </div>
           </div>
         </div>

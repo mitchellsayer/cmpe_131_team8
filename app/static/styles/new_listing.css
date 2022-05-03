@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(235, 203, 255);
+    background-color: rgba(0, 217, 255, 0.29);
 }
 
 #outer {
@@ -11,4 +11,13 @@ body {
 #inner {
     margin: auto;
     text-align: center;
+}
+
+.form-container {
+    width: 60%;
+    margin: 50px auto;
+    background: #edecec;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 20px;
 }

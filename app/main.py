@@ -1,10 +1,27 @@
-from flask import Blueprint, render_template
+import os
+import random
+
+from flask import Blueprint, render_template, request, redirect, url_for, flash, current_app
 from flask_login import login_required, current_user
+from werkzeug.utils import secure_filename
+
 from .models import Listing
-from . import db
+from . import db, ALLOWED_EXTENSIONS, UPLOAD_FOLDER
 
 main = Blueprint('main', __name__)
 
+# --------- Helper Functions ---------
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def unique_id():
+    seed = random.getrandbits(32)
+    while True:
+       yield seed
+       seed += 1
+
+# -------------- Routes --------------
 @main.route('/')
 def index():
     return render_template('index.html')
@@ -17,45 +34,84 @@ def profile():
 @main.route('/listings')
 @login_required
 def listings():
-    other_listings = Listing.query.filter(Listing.userID != current_user.id)
-    # test_listings = []
-    # for i in range(5):
-    #     listing = Listing(
-    #         productID = i,
-    #         userID = current_user.id,
-    #         name = f"Test Item {i}",
-    #         brand = "Test Brand",
-    #         description = "This is a test item description",
-    #         price = 10.99,
-    #         image = 'images/test_image.jpeg',
-    #         stock = 5
-    #     )
-    #     test_listings.append(listing)
-    #     db.session.add(listing)
-    # db.session.commit()
+    flash_id = request.args.get('id')
+    other_listings = Listing.query.filter(Listing.userID == current_user.id)
 
-    return render_template('listings.html', listings = other_listings)
+    return render_template('listings.html', listings = other_listings, id=flash_id)
 
 @main.route('/new_listing')
 @login_required
 def new_listing():
     return render_template('new_listing.html')
 
-@main.route('/purchase/<productID>/<quantity>')
+@main.route('/new_listing', methods=['POST'])
 @login_required
-def purchase(productID, quantity):
-    print(str(productID))
+def new_listing_post():
+    title = request.form.get('title')
+    brand = request.form.get('brand')
+    description = request.form.get('description')
+    stock = request.form.get('stock')
+    price = request.form.get('price')
+    
+    if 'file' not in request.files:
+        return redirect(request.url)
+    file = request.files['file']
+    
+    if file.filename == '':
+        flash('No selected file')
+        return redirect(request.url)
+    if not file or not allowed_file(file.filename):
+        flash('File not allowed')
+        return redirect(request.url)
+
+    filename = secure_filename(file.filename)
+    file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+    print(f'uploaded: {filename}')
+
+    listing = Listing(
+            productID = next(unique_id()),
+            userID = current_user.id,
+            name = title,
+            brand = brand,
+            description = description,
+            price = float(price),
+            image = filename,
+            stock = int(stock))
+    print(listing)
+    db.session.add(listing)
+    db.session.commit()
+
+    return redirect(url_for('main.profile'))
+
+@main.route('/purchase/<productID>')
+@login_required
+def purchase(productID):
     cur_listing = Listing.query.get(productID)
+    quantity = int(request.args['quantity'])
 
-    tax = round((cur_listing.price * 0.0725), 3)
-    total = cur_listing.price + tax
+    subtotal = round(quantity * cur_listing.price, 2)
+    tax = round(subtotal * 0.0725, 2)
+    total = round(subtotal + tax, 2)
+    totals = {
+        'subtotal': subtotal,
+        'tax':      tax,
+        'total':    total,
+        'quantity': quantity
+    }
 
-    print(cur_listing)
-    return render_template('purchase.html', listing=cur_listing, tax=tax, total=total)
+    if (quantity > cur_listing.stock):
+        flash('Selected quantity is greater than item stock.')
+        return redirect(url_for('main.listings', id=productID))
 
-@main.route('/purchase/<productID>/<quantity>', methods=['POST'])
+    return render_template('purchase.html', 
+                           listing=cur_listing,  
+                           totals=totals)
+
+@main.route('/purchase/<productID>', methods=['POST'])
 @login_required
-def purchase_post(productID, quantity):
+def purchase_post(productID):
+    quantity = int(request.args['quantity'])
+    cur_listing = Listing.query.get(productID)
     
     #reduce stock of item 
-    return redirect(url_for('index.html'))
+    return redirect(url_for('main.index'))
