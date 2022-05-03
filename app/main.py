@@ -23,6 +23,13 @@ def listings():
 @main.route('/new_listing')
 @login_required
 def new_listing():
+    #validate the form? Get the info from the html bootstrap form?
+    #get the current user
+    #create a listing variable
+    new_listing=Listing(name=name, stock=stock, desc=desc, seller=seller )
+    #add it to database
+    db.session.add(new_listing)
+    db.session.commit()
     return render_template('new_listing.html')
 
 @main.route('/purchase')
