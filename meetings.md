@@ -6,16 +6,16 @@
 ### 2022-04-06-22 at 5:00 pm
 *Attendees: Mitchell, Matthew, Zander
 
--Tasks:
+*Tasks: <br>
 1. Mitchell created a team repo to begin our project (including meetings, readme, requirements files)
-2. We discussed how to divide up projects features based on their level of complexity
+2. We discussed how to divide up projects features based on their level of complexity <br>
 	*As of right now, we each need to finish the "Functional" and "Non Functional" requirements (12 functional and 4 nonfunctional per person in total
 
 ### 2022-04-14 at 10:30 am
 *Attendees: Muhammad, Matthew, Zander
 
--Tasks:
-1. We discussed each of our functional, non functional requirements, and use cases
+*Tasks:
+1. We discussed each of our functional, non functional requirements, and use cases <br>
 	*Our current progress is each teammate has functional requirements completed
 3. We expect to have all non functional requirements and use cases finished by next meeting
 
@@ -27,16 +27,22 @@
 	*All suggestions condensed down into a list of 10 functional, 4 non functional, and 6 use cases
 
 ### 2022-04-24-22 at 1:00 pm
--Attendees: Muhammad, Matthew, Zander, Mitchell
+*Attendees: Muhammad, Matthew, Zander, Mitchell
 
 *Tasks:
-1. Zander, Matthew, and Mitchell tried debugging "Login" issue from Muhammad's branch in repository
+1. Zander, Matthew, and Mitchell tried debugging "Login" issue from Muhammad's branch in repository <br>
 	*We need more time to determine why URL is failing to load (suspected issue is from Muhammad's "routes.py" file
-2. Matthew filled out Gantt Chart sections pertaining to Functional/Non Functional Requirements, including "Planned Start","Actual Start", "Planned Duration" and "Actual Duration"
-	*Planned Duration for each requirement is expected to differ from Actual Duration (accounting for debugging issues with URLs, template inheritance, and routes
+2. Matthew filled out Gantt Chart sections pertaining to Functional/Non Functional Requirements, including "Planned Start","Actual Start", "Planned Duration" and "Actual Duration" <br>
+	*Planned Duration for each requirement is expected to differ from Actual Duration (accounting for debugging issues with URLs, template inheritance, and routes <br>
 	*Zander and Muhammad gave input on how "Period" section should be filled out
-3. Zander started filling out the "Title" and "Introduction" sections for "README.md" file
+3. Zander started filling out the "Title" and "Introduction" sections for "README.md" file <br>
 	*More sections of file will be completed once our functions have been implemented fully
 4. Mitchell began working on boiler plate code for entire team to use for functions
-5. As a team, we decided how to break up the tasks for the entire project
+5. As a team, we decided how to break up the tasks for the entire project <br>
 	*Team Gantt Chart shows initials of our names next to each of our assigned tasks
+
+### 2022-05-1-22 at 5:00 pm
+*Attendees: Muhammad, Matthew, Mitchell
+
+### 2022-05-3-22 at 1:30 pm
+*Attendees: Muhammad, Matthew, Zander, Mitchell
