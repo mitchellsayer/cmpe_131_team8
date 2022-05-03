@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
-from numpy import product
 from .models import Listing
 from . import db
 
@@ -18,7 +17,7 @@ def profile():
 @main.route('/listings')
 @login_required
 def listings():
-    other_listings = Listing.query.filter(Listing.userID == current_user.id)
+    other_listings = Listing.query.filter(Listing.userID != current_user.id)
     # test_listings = []
     # for i in range(5):
     #     listing = Listing(
@@ -42,9 +41,9 @@ def listings():
 def new_listing():
     return render_template('new_listing.html')
 
-@main.route('/purchase/<productID>')
+@main.route('/purchase/<productID>/<quantity>')
 @login_required
-def purchase(productID):
+def purchase(productID, quantity):
     print(str(productID))
     cur_listing = Listing.query.get(productID)
 
@@ -54,9 +53,9 @@ def purchase(productID):
     print(cur_listing)
     return render_template('purchase.html', listing=cur_listing, tax=tax, total=total)
 
-@main.route('/purchase', methods=['POST'])
+@main.route('/purchase/<productID>/<quantity>', methods=['POST'])
 @login_required
-def purchase_post():
-    #Before final payment is paid for, an additional sales tax is included
-    total_checkout = total_price + (total_price *0.10)
+def purchase_post(productID, quantity):
+    
+    #reduce stock of item 
     return redirect(url_for('index.html'))
