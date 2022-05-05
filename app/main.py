@@ -105,6 +105,10 @@ def purchase(productID):
         flash('Selected quantity is greater than item stock.')
         return redirect(url_for('main.listings', id=productID))
 
+    if (quantity == 0 ):
+        flash('Selected quantity is not valid.')
+        return redirect(url_for('main.listings', id=productID))
+
     return render_template('purchase.html', 
                            listing=cur_listing,  
                            totals=totals)
