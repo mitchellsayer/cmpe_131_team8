@@ -106,7 +106,7 @@ def purchase(productID):
         return redirect(url_for('main.listings', id=productID))
 
     if (quantity == 0 ):
-        flash('Selected quantity is not valid.')
+        flash('Selected quantity must be greater than 0.')
         return redirect(url_for('main.listings', id=productID))
 
     return render_template('purchase.html', 
