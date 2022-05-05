@@ -44,5 +44,34 @@
 ### 2022-05-1-22 at 5:00 pm
 *Attendees: Muhammad, Matthew, Mitchell
 
+*Tasks:
+
+1. Muhammad had some issues with numerous forks created on GitHub, so Mitchell helped establish a proper branch for him <br>
+	*We created a branch called "integration_feature" which will have the most current versions of our commits
+
+2. Mitchell showed Matthew how he implemented the "POST" command for "new_listing.html" and Matthew tried applying that same concept to the "purchase.html" file <br>
+	*Currently, the purchase page does offer 3 types of payment: credit, debit, and paypal (deciding whether or not to include cvv option for data security)
+
+3. Latest commits were pulled by ALL teammates from master branch <br>
+	*We will be pushing to integration_feature soon
+
+4. Matthew filled out "How to Use", "List of Features", "Introduction", "Technologies Used" and "Title" sections of our README file <br>
+	*Each section is subject to change, but primary information has been added <br>
+	*Zander will be filling out "Acknowledgements" and "How to Install" sections
+
+
 ### 2022-05-3-22 at 1:30 pm
 *Attendees: Muhammad, Matthew, Zander, Mitchell
+
+*Tasks:
+
+1. Muhammad updated group on his progress with Home page <br>
+	*We are still deciding on a generic color which will be used throughout the website (options are blue, orange, green)
+2. Zander and Mitchell worked together on how the format of "Profile.html" should appear to users<br>
+	*The page contains a user profile pic, their location (currently San Francisco), email, delete account option, and any of their current listings featured on website
+
+3. Matthew worked on updating the meeting minutes because the original file had improper spacing <br>
+	*He also updated the team gantt chart with progress tabs on each of MVP 1's expected requiremtns
+
+4. Our project is rather close to being completed<br>
+	*Team will soon discuss how to implement non-functional requirements such as Dark Mode
