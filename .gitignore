@@ -1,3 +1,3 @@
 /app/__pycache__/*
-/app/static/images/*
-!/app/static/images/default_profile.jpeg
+# /app/static/images/*
+# !/app/static/images/default_profile.jpeg
