@@ -1,9 +1,13 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from os.path import join, dirname, realpath
 
 # Initialize database
 db = SQLAlchemy()
+
+UPLOAD_FOLDER = join(dirname(realpath(__file__)), 'static/images/')
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 # Automatically detected when FLASK_APP env var is set
 # App factory pattern.
@@ -12,6 +16,7 @@ def create_app():
 
     app.config['SECRET_KEY'] = 'secret-key-goes-here'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 	# Initialize db
     db.init_app(app)

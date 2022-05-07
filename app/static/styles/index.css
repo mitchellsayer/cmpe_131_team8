@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(157, 221, 249);
+    background-color: rgba(0, 255, 94, 0.29);
 }
 
 #outer {
@@ -11,4 +11,35 @@ body {
 #inner {
     margin: auto;
     text-align: center;
+}
+
+.card{
+    margin-bottom: 20px;
+}
+
+.card-body{
+    padding: 10px 10px 10px 10px;
+    position: top;
+  /*  border-style: solid; */
+}
+
+.carousel-inner{
+    width: 1100px;
+    padding: 10px 10px 10px 10px;
+}
+
+
+.carousel-px-dim{
+    justify-content: center;
+    display: run-in;
+    flex-direction: row;
+/*
+    width: 50%;
+    height: 30%;
+*/
+}
+
+img{
+    width: 60%;
+    height: 60%;
 }
