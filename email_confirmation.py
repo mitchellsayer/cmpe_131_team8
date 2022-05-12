@@ -56,31 +56,16 @@ message = f"""\
 Subject: Purchase Comfirmation
 
 Here is your Confirmation number: {confirmation_number}
-
+Thank You for shopping with Rojas Depot
 {current_time}"""
 
 is_valid_email = validate_email_adress(test_email)
 
-#new_connection = smtplib.SMTP('smtp.gmail.com')
 context = ssl.create_default_context()
 
-#new_connection = smtplib.SMTP_SSL(SMTP_SERVER, PORT, context=context )
-
-
-
+#send from_address to reciever address with message 
 with smtplib.SMTP_SSL(SMTP_SERVER, PORT, context=context ) as server:
     server.login(test_email, test_pass)
-    server.sendmail('powerboy_2200@hotmail.com',test_email , message)
+    server.sendmail(test_email,'powerboy_2200@hotmail.com' , message)           #sendmail(rojasDepotDummyEmail, 'emailFromDataBase')
 
-'''
-    with new_connection as c:
-        c.starttls()       #secures connection
-        c.login(test_email, test_pass)
-        c.sendmail(
-            from_addr=test_email, 
-            to_addr=test_email, 
-            msg=f"\nConfirmation number: {confirmation_number}\nThank You for shopping with us\n{current_time}")
-        c.close()
-'''
-    #new_connection.close()
 
