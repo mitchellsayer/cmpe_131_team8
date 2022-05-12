@@ -1,42 +1,45 @@
 ## Functional Requirements
 
-1. User login and authentication
-2. User logout
-3. Create new account
-4. Delete account
-5. Search function for posted items
-6. Automatic confirmation email sent upon purchase completion
-7. Ability to select quantity of item being purchased
-8. New Item listing functionality (form submission)
-9. Sales Tax automatically added during item checkout
-10. View purchase history
-11. Configurable Price filter for listings 
-12. Implementation of Luhn Algorithm for credit card number validation.
+1. User Login/Authentication
+2. User Logout
+3. Create User Account
+4. Delete User Account
+5. Search For Items
+6. Purchase Confirmation Email
+7. Select Item Quantity
+8. New Item Listing Form
+9. Additional Sales Tax
+10. View Purchase History
+11. Apply Price Filter
+12. Payment Card Validation
+13. View Item Listings
+14. Purchase Item Listing
 
 ## Non-functional Requirements
 
-1. Credit Card will not be charged upon purchase, the action will be spoofed
-2. Site-wide Dark Mode option
-3. Proper storage and transmission of password data using hashes
-4. Code base will be made maintainable by effective use of Jinja templating and modular site components.
+1. Denial of Payment Card (Card Validation)
+2. Site-Wide "Dark Mode"
+3. Proper Storage/Transmission
+4. Jinja Template Application
+5. Home Page Item Carousel
+6. User Profile w/ Item Listing
+
 
 ## Use Cases
 
 ### 1. Search Item
-- **Pre-condition:** Shopper must be authenticated 
+- **Pre-condition:** Shopper must be logged into website 
 
-- **Trigger:** Shopper clicks on the "Search" tab on top of website page 
+- **Trigger:** Shopper clicks on "Search" tab
 
-- **Trigger:** User goto checkout
+- **Trigger:** User goes to checkout
                
 - **Primary Sequence:**
-  1. Customer enters in a key word ("toys", "food", "clothes") to narrow down search
-  2. System searches through all of the items from website to see if they match narrowed down search
-  3. System ignores all items that don't meet requirements
-  4. System orders all items alphabetically into a list
-  5. System prompts user with items from their specified category 
+  1. Customer enters key word ("Microwave", "Soup", etc.) to narrow down search
+  2. System checks items stored in database website to see if there's a match
+  5. System displays items  
 
-- **Primary Postconditions:** Customer sees the item they are looking for within the website OR Customer receives the message "No Items Found" if website doesn't sell the item
+- **Primary Postconditions:** Customer sees the item they are looking for OR Customer receives the message "No Items Found" if website doesn't sell the item
 
 - **Alternate Sequence:** System prompts user that the item can't be found OR System asks user to enter in a valid item to search bar
 
@@ -112,7 +115,7 @@
 
 
 ### 6. Post Listing
-- **Pre-condition:** User must be logged in and authenticated.
+- **Pre-condition:** User must be logged in and authenticated
 
 - **Trigger:** User clicks "New Listing" button in the menu bar
 
@@ -120,9 +123,9 @@
   1. User enters listing title
   2. User enters listing description
   3. User enters listing price
-  4. When "Post Listing" button is clicked, a db entry for the post is inserted.
+  4. When "Post Listing" button is clicked, a db entry for the post is inserted
   5. Client browsers viewing listing data are updated with new listing
 
 - **Primary Postconditions:** The newly created listing will be available to view by all logged in users, and in the post history page for the current user. Other users can (fake) purchase the listed item.
 
-- **Alternate Sequence:** User selects "Cancel" button and the currently inputted form data is dropped.
+- **Alternate Sequence:** User selects "Cancel" button and the currently inputted form data is dropped
