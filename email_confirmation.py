@@ -50,8 +50,8 @@ current_time = dt.datetime.now()
 confirmation_number = get_confirmation_number(CONFIRMATION_NUMBER_LEN)
 
 #get user email from database
-test_email = "muhammad.f.aleem@gmail.com"
-test_pass = "fawadh2oco2hclc6h12o6"
+test_email = "rojas.depot@gmail.com"
+test_pass = "H2oco2hcl@"
 message = f"""\
 Subject: Purchase Comfirmation
 
