@@ -24,7 +24,9 @@ def unique_id():
 # -------------- Routes --------------
 @main.route('/')
 def index():
-    return render_template('index.html')
+    all_listings = Listing.query.all()
+    images = [l.image for l in all_listings]
+    return render_template('index.html', images=images)
 
 @main.route('/profile')
 @login_required
