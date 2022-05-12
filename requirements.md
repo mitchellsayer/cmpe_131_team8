@@ -104,11 +104,10 @@
 - **Trigger** User selects filter dropdown at top of listing page
 
 - **Primary Sequence**
-   1. The Customer navigates to the Listings page
-   2. On the left they click the filter dropdown and select "high to low". "low to high", or enter an upper bound amount.
-   3. Filter is applied when the user clicks away from the dropdown or on a selected item.
+   1. On the left, in the filter dropdown, Users select "high to low" or "low to high".
+   2. Filter is applied when the user clicks apply filters.
 
-- **Primary Postconditions** The user can browse Listings more effectively based on price
+- **Primary Postconditions** The user can browse Listings more effectively based on price.
 
 
 ### 6. Post Listing
