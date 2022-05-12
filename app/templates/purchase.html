@@ -12,7 +12,6 @@
         <div class="container h-100 py-5">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col">
-      
               <div class="table-responsive">
                 <table class="table">
                   <thead>
@@ -48,11 +47,19 @@
                   </tbody>
                 </table>
               </div>
+           
               <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
                 <div class="card-body" style="margin-bottom: -2em">
+                  {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+                          <div class="text-danger">
+                              {{ messages[0] }}
+                          </div>
+                      {% endif %}
+                  {% endwith %}
+                <form method="POST" action="{{ url_for('main.purchase', productID=listing.productID) }}">
                   <div class="row">
                     <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
-                    <form>
                         <div class="d-flex flex-row pb-3">
                           <div class="d-flex align-items-center pe-2">
                             <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1v"
@@ -128,16 +135,15 @@
                         <p class="mb-2">Total (tax included):</p>
                         <p class="mb-2">${{ totals['total'] }}</p>
                       </div>
-      
                       <button type="button" action="submit" class="btn btn-success btn-block btn-lg">
                         <div class="d-flex justify-content-between">
                           <span>Purchase Now</span>
                           <span>${{ totals['total'] }}</span>
                         </div>
                       </button>
-                    </form>
                     </div>
-                  </div>
+                </div>
+              </form>
                 </div>
               </div>
             </div>

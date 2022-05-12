@@ -115,7 +115,8 @@ def purchase(productID):
 
 @main.route('/purchase/<productID>', methods=['POST'])
 @login_required
-def purchase_post(productID, paymentCard):
+def purchase_post(productID):
+    return redirect(url_for('main.index'))
     email = request.form.get('email')
     password = request.form.get('password')
     remember = request.form.get('remember')
@@ -123,18 +124,16 @@ def purchase_post(productID, paymentCard):
     paymentCard = request.form.get('paymentCard')
     cur_listing = Listing.query.get(productID)
 
-    i=0
     number_of_digits = len(paymentCard)
     if (len(paymentCard) > 10):
-            flash("Card number is not valid")
-            return redirect(url_for('purchase.html'))
+        flash("Card number is not valid")
+        return redirect(url_for('main.purchase'))
 
+    card_sum =0
     for i in range(number_of_digits):
-        paymentCard[i]=paymentCard[i]+paymentCard[i]
-        paymentCard[i]%10
-        i+=1
+        card_sum+=paymentCard[i]
 
-    if (paymentCard[i]%10 != 0):
+    if (card_sum%10 != 0):
         flash("Please enter a valid card!")
         return False
 
