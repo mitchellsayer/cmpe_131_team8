@@ -69,9 +69,6 @@ def delete():#pass current user into delete function
     userId=current_user.id
     user = User.query.get(userId) #getting row which has primary key of user (user id) from database
     logout_user()
-    #userId=user.id
-    #print("You user id is...")
-    #print (str(userId) + "/t" + user.email + "\t" + user.name)
     print(user)
     db.session.delete(user)
     db.session.commit()

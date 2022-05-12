@@ -87,11 +87,11 @@ def new_listing_post():
 
     return redirect(url_for('main.listings'))
 
-@main.route('/purchase/<productID>')
+@main.route('/purchase/<productID>', methods=['GET'])
 @login_required
 def purchase(productID):
     cur_listing = Listing.query.get(productID)
-    quantity = int(request.args['quantity'])
+    quantity = int(request.args.get('quantity','-1'))
 
     subtotal = round(quantity * cur_listing.price, 2)
     tax = round(subtotal * 0.0725, 2)
@@ -102,14 +102,14 @@ def purchase(productID):
         'total':    total,
         'quantity': quantity
     }
+    if quantity < 0:
+        if (quantity > cur_listing.stock):
+            flash('Selected quantity is greater than item stock.')
+            return redirect(url_for('main.listings', id=productID))
 
-    if (quantity > cur_listing.stock):
-        flash('Selected quantity is greater than item stock.')
-        return redirect(url_for('main.listings', id=productID))
-
-    if (quantity == 0 ):
-        flash('Selected quantity must be greater than 0.')
-        return redirect(url_for('main.listings', id=productID))
+        if (quantity == 0 ):
+            flash('Selected quantity must be greater than 0.')
+            return redirect(url_for('main.listings', id=productID))
 
     return render_template('purchase.html', 
                            listing=cur_listing,  
@@ -118,8 +118,36 @@ def purchase(productID):
 @main.route('/purchase/<productID>', methods=['POST'])
 @login_required
 def purchase_post(productID):
-    quantity = int(request.args['quantity'])
-    cur_listing = Listing.query.get(productID)
+    cardNumber = list(request.form.get('cardNumber'))
+    cardNumber = [int(x) for x in cardNumber]
+    paymentType = request.form.get('paymentType')
+    cardOwner = request.form.get('cardOwner')
+    expirationDate = request.form.get('expirationDate')
+    quantity = int(request.form.get('quantity'))
     
-    #reduce stock of item 
-    return redirect(url_for('main.index'))
+    cur_listing = Listing.query.get(productID)
+
+    cur_listing.stock-=quantity
+    if (cur_listing.stock <= 0):
+        db.session.delete(cur_listing)
+    db.session.commit()
+
+    number_of_digits = len(cardNumber)
+    if (len(cardNumber) > 10):
+        flash("Card number is not valid")
+        return redirect(url_for('main.purchase'))
+
+    card_sum =0
+    for i in range(number_of_digits):
+        card_sum+=cardNumber[i]
+
+    if (card_sum%10 != 0):
+        flash("Please enter a valid card!")
+        return redirect(url_for('main.purchase', productID=productID) + f'?quantity={quantity}')
+    else:
+        flash('Your card has been accepted!')
+        return redirect(url_for('main.profile'))
+
+    
+
+
