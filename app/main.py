@@ -99,12 +99,14 @@ def new_listing():
 @main.route('/new_listing', methods=['POST'])
 @login_required
 def new_listing_post():
+    # Parse form
     title = request.form.get('title')
     brand = request.form.get('brand')
     description = request.form.get('description')
     stock = request.form.get('stock')
     price = request.form.get('price')
     
+    # Validate File
     if 'file' not in request.files:
         return redirect(request.url)
     file = request.files['file']
@@ -113,10 +115,12 @@ def new_listing_post():
         flash('File not allowed')
         return redirect(request.url)
 
+    # Save File
     filename = secure_filename(file.filename)
     file.save(os.path.join(UPLOAD_FOLDER, filename))
     print(f'uploaded: {filename}')
 
+    # Update Listing Table
     listing = Listing(
             productID = next(unique_id()),
             userID = current_user.id,
@@ -155,21 +159,25 @@ def purchase(productID):
 @main.route('/purchase/<productID>', methods=['POST'])
 @login_required
 def purchase_post(productID):
+    cur_listing = Listing.query.get(productID)
+
+    # Parse Form
     cardNumber = request.form.get('cardNumber')
     paymentType = request.form.get('paymentType')
     cardOwner = request.form.get('cardOwner')
     expirationDate = request.form.get('expirationDate')
     quantity = int(request.form.get('quantity'))
-    
-    cur_listing = Listing.query.get(productID)
 
+    # Update Listing table
     cur_listing.stock -= quantity
     if (cur_listing.stock <= 0):
         db.session.delete(cur_listing)
     db.session.commit()
 
-    validation = validate_card(cardNumber)
+    # TODO: Update Purchase table
 
+    # Validate Card
+    validation = validate_card(cardNumber)
     if (not validation):
         flash("Please enter a valid card!")
         return redirect(url_for('main.purchase', productID=productID) + f'?quantity={quantity}')
@@ -184,11 +192,11 @@ def purchase_post(productID):
     try:
         print(f'Sending email from {sender_email} to {current_user.email}')
         mail.send(msg)
-        # TODO: add flash msg to profile page
-        flash("Confirmation Email Sent")
     except Exception as e:
         print('Sending email failed.')
         print(e)
+    # TODO: add flash msg to profile page
+    flash("Confirmation Email Sent")
 
     return redirect(url_for('main.profile'))
 
