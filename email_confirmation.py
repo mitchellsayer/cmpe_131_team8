@@ -50,8 +50,8 @@ current_time = dt.datetime.now()
 confirmation_number = get_confirmation_number(CONFIRMATION_NUMBER_LEN)
 
 #get user email from database
-test_email = "rojas.depot@gmail.com"
-test_pass = "H2oco2hcl@"
+test_email = "muhammad.f.aleem@gmail.com"
+test_pass = "fawadh2oco2hclc6h12o6"
 message = f"""\
 Subject: Purchase Comfirmation
 
@@ -66,6 +66,6 @@ context = ssl.create_default_context()
 #send from_address to reciever address with message 
 with smtplib.SMTP_SSL(SMTP_SERVER, PORT, context=context ) as server:
     server.login(test_email, test_pass)
-    server.sendmail(test_email,'powerboy_2200@hotmail.com' , message)           #sendmail(rojasDepotDummyEmail, 'emailFromDataBase')
+    server.sendmail(test_email,'powerboy_2200@hotmail.com' , message)           #sendmail(dummyEmail, 'emailFromDataBase')
 
 
