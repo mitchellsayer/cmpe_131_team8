@@ -3,9 +3,20 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
 from .models import User
 from . import db
+import re
 
 # Use blueprints to group auth routes together
 auth = Blueprint('auth', __name__)
+
+def validate_email_adress(email):
+    validation_regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+    
+    if(re.fullmatch(validation_regex, email)):
+        print("Valid Email")
+        return True
+
+    print("Invalid Email")
+    return False
 
 @auth.route('/login')
 def login():
@@ -44,7 +55,11 @@ def signup_post():
     user = User.query.filter_by(email=email).first()
     if user:
         flash('Email address already exists')
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('auth.signup'))
+
+    if(not validate_email_adress(email)):
+        flash('Invalid email address format')
+        return redirect(url_for('auth.signup'))
 
     # Use SHA 256 to hash password & avoid storing in plaintext
     new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
