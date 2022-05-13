@@ -116,7 +116,7 @@
 *Tasks:
 1. Matthew created a dummy version of credit card validation system <br>
 	*LUHN algorithm has not been implemented, so class demo will rely on Matthew's algorithm
-	
+
 2. Mitchell and Matthew worked together to reduce "Stock" of each item once it's been purchased<br>
 
 	*When item reaches stock of "0", item gets deleted from website
@@ -133,7 +133,7 @@
 1. Matthew, Zander, and Muhammad modified website use cases to avoid ambiguity and vagueness<br>
 	*Current grade is a LP, but expected revisions should merit a HP
 
-2. Muhammad is tasked with updating README file's "How to Install" section with required libraries 
-	*He will peer-review file for grammatical errors <br>
+2. Muhammad is tasked with updating README file's "How to Install" section with required libraries <br>
+	*He will peer-review file for grammatical errors 
 
 
