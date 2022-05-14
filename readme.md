@@ -41,7 +41,7 @@ Before the initial shopping commences, each visitor to our website must create a
 In order to have a robost sytem capable of storing multiple users, we relied on the tool SQLAlchemy. Because this application runs on Python, our classes and functions easily got converted into tables and SQL statements. To ensure our website was aethetically pleasing, we felt the need to implement Bootstrap. With such a wide array of templates, colors, and fonts, this allowed us to add creative flare to each web page. During the initial phases of our project, we relied on Ubuntu to implement our Python files. However, this strategy proved to be quite frustrating, especially when it came to pushing commits onto GitHub. Thus, we switched over to Visual Studios Code as our IDE. Utilizing this software made it quite easy to add, commit, push, and pull requests from each others coding elements. Visual Studios Code was used in conjunction with GitHub. This application made it easy for each team member to view changes made to our branches, files, etc. Overall, we had a solid setup that made it easier for each team member to contribute to this project. 
 
 ## Acknowledgements:
-bootstrap web pages
+bootstrap and other tutorial web pages
 1. https://getbootstrap.com/docs/4.0/components/forms/
 2. https://getbootstrap.com/docs/4.0/layout/grid/ 
 3. https://getbootstrap.com/docs/4.0/utilities/spacing/
