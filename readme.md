@@ -12,7 +12,6 @@ Welcome to Rojas Depot! Home to all of your online shopping needs. We are a team
 
 ## How to Install:
 The following packages are required in order for our application to work:
-'''yml
 - flask
 - flask-login
 - flask-sqlalchemy
@@ -21,7 +20,6 @@ The following packages are required in order for our application to work:
 - random
 - datetime
 - string
-'''
 
 We used Python with Flask and flask-SQLAlchemy. This was coupled with bootstrap, css, and html documents to make a webpage that can be downloaded from github and run using python3 run.py in a computer terminal that has python installed. Once Run in this way the website can be accessed from any web browser such as firefox or google chrome and typing "localhost:5000" into the address bar.
 
