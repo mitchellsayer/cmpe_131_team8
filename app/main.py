@@ -226,6 +226,7 @@ def purchase_post(productID):
 
     # Validate Card
     validation = validate_card(cardNumber)
+    print(f'validation for {cardNumber}: {validation}')
     if (not validation):
         flash("Please enter a valid card!")
         return redirect(url_for('main.purchase', productID=productID) + f'?quantity={quantity}')
@@ -233,6 +234,7 @@ def purchase_post(productID):
     # Update Purchase table
     totals = compute_purchase_totals(quantity, cur_listing.price)
     purchase = Purchase(
+        purchaseID = next(unique_id()),
         productID = cur_listing.productID,
         buyerUserID = current_user.id,
         sellerUserID = cur_listing.userID,

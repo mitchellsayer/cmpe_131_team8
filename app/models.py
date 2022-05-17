@@ -20,10 +20,11 @@ class Listing(db.Model):
     stock = db.Column(db.Integer)
 
 class Purchase(db.Model):
+    purchaseID = db.Column(db.Integer, unique=True)
     productID = db.Column(db.Integer)
     buyerUserID = db.Column(db.Integer)
     sellerUserID = db.Column(db.Integer)
-    name = db.Column(db.String(100), unique=True)
+    name = db.Column(db.String(100))
     quantity = db.Column(db.Integer)
     total = db.Column(db.Float)
     image = db.Column(db.String(100))
