@@ -15,7 +15,13 @@ The following packages are required in order for our application to work:
 - flask
 - flask-login
 - flask-sqlalchemy
-We used Python with Flask and SQLAlchemy. This was coupled with bootstrap, css, and html documents to make a webpage that can be downloaded from github and run using python3 run.py in a computer terminal that has python installed. Once Run in this way the website can be accessed from any web browser such as firefox or google chrome and typing "localhost:5000" into the address bar.
+- re (regular expression)
+- os
+- random
+- datetime
+- string
+
+We used Python with Flask and flask-SQLAlchemy. This was coupled with bootstrap, css, and html documents to make a webpage that can be downloaded from github and run using python3 run.py in a computer terminal that has python installed. Once Run in this way the website can be accessed from any web browser such as firefox or google chrome and typing "localhost:5000" into the address bar.
 
 ## How to Use: 
 To Run our site, run the following command from the project root:
@@ -35,10 +41,12 @@ Before the initial shopping commences, each visitor to our website must create a
 In order to have a robost sytem capable of storing multiple users, we relied on the tool SQLAlchemy. Because this application runs on Python, our classes and functions easily got converted into tables and SQL statements. To ensure our website was aethetically pleasing, we felt the need to implement Bootstrap. With such a wide array of templates, colors, and fonts, this allowed us to add creative flare to each web page. During the initial phases of our project, we relied on Ubuntu to implement our Python files. However, this strategy proved to be quite frustrating, especially when it came to pushing commits onto GitHub. Thus, we switched over to Visual Studios Code as our IDE. Utilizing this software made it quite easy to add, commit, push, and pull requests from each others coding elements. Visual Studios Code was used in conjunction with GitHub. This application made it easy for each team member to view changes made to our branches, files, etc. Overall, we had a solid setup that made it easier for each team member to contribute to this project. 
 
 ## Acknowledgements:
-bootstrap web pages
+bootstrap and other tutorial web pages
 1. https://getbootstrap.com/docs/4.0/components/forms/
 2. https://getbootstrap.com/docs/4.0/layout/grid/ 
 3. https://getbootstrap.com/docs/4.0/utilities/spacing/
+4. https://www.w3schools.com/python/python_regex.asp
+
 youtube tutorials
 1. https://www.youtube.com/watch?v=no-Ntkc836w&t=153s 
 2. https://www.youtube.com/watch?v=OEJHPxyc_ps&t=89s

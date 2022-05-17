@@ -1,10 +1,14 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_mail import Mail, Message
 from os.path import join, dirname, realpath
 
-# Initialize database
+# Create database handler
 db = SQLAlchemy()
+
+# Create mail handler
+mail = Mail()
 
 UPLOAD_FOLDER = join(dirname(realpath(__file__)), 'static/images/')
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -18,8 +22,19 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-	# Initialize db
+    app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+    app.config['MAIL_PORT'] = 465
+    app.config['MAIL_USERNAME'] = 'mitchell4408@gmail.com'
+    app.config['MAIL_PASSWORD'] = 'lskyjuxllavzoydz'
+    app.config['MAIL_USE_TLS'] = False
+    app.config['MAIL_USE_SSL'] = True
+    app.config['CONFIRMATION_NUMBER_LEN'] = 16
+
+	# Initialize db handler
     db.init_app(app)
+
+    # Initialize mail hanlder
+    mail.init_app(app)
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'

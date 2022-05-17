@@ -12,7 +12,6 @@
         <div class="container h-100 py-5">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col">
-      
               <div class="table-responsive">
                 <table class="table">
                   <thead>
@@ -50,13 +49,20 @@
               </div>
               <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
                 <div class="card-body" style="margin-bottom: -2em">
+                  {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+                          <div class="text-danger">
+                              {{ messages[0] }}
+                          </div>
+                      {% endif %}
+                  {% endwith %}
+                <form method="POST" action="{{ url_for('main.purchase', productID=listing.productID) }}">
                   <div class="row">
                     <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
-                      <form>
                         <div class="d-flex flex-row pb-3">
                           <div class="d-flex align-items-center pe-2">
-                            <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1v"
-                              value="" aria-label="..." checked />
+                            <input class="form-check-input" type="radio" name="paymentType" id="optionCredit"
+                              value="credit" aria-label="..." checked />
                           </div>
                           <div class="rounded border w-100 p-3">
                             <p class="d-flex align-items-center mb-0">
@@ -66,8 +72,8 @@
                         </div>
                         <div class="d-flex flex-row pb-3">
                           <div class="d-flex align-items-center pe-2">
-                            <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel2v"
-                              value="" aria-label="..." />
+                            <input class="form-check-input" type="radio" name="paymentType" id="optionDebit"
+                              value="debit" aria-label="..." />
                           </div> 
                           <div class="rounded border w-100 p-3">
                              <p class="d-flex align-items-center mb-0">
@@ -77,35 +83,34 @@
                         </div>
                          <div class="d-flex flex-row">
                           <div class="d-flex align-items-center pe-2">
-                            <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel3v"
-                              value="" aria-label="..." />
+                             <input name="quantity" type = "hidden" id="radioNoLabel3v"
+                              value="{{ totals['quantity'] }}" aria-label="..." />
                           </div>
-                          <div class="rounded border w-100 p-3">
+                          <div class="w-100 p-3">
                             <p class="d-flex align-items-center mb-0">
-                              <i class="fab fa-cc-paypal fa-2x fa-lg text-dark pe-2"></i>PayPal
+                              <!-- <i class="fab fa-cc-paypal fa-2x fa-lg text-dark pe-2"></i>PayPal -->
                             </p>
                           </div>
                         </div>
-                      </form>
                     </div>
                     <div class="col-md-6 col-lg-4 col-xl-6">
                       <div class="row">
                         <div class="col-12 col-xl-6">
                           <div class="form-outline mb-4 mb-xl-5">
-                            <input type="text" id="typeName" class="form-control form-control-lg" size="17"
-                              placeholder="{{ current_user.name }}" />
+                            <input type="text" id="typeName" name = "cardOwner" class="form-control form-control-lg" size="17"
+                              placeholder="{{ current_user.name }}" required="required"/>
                             <label class="form-label" for="typeName">Card Owner</label>
                           </div>      
                           <div class="form-outline mb-4 mb-xl-5">
-                            <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/YY"
-                              size="7" id="exp" minlength="7" maxlength="7" />
+                            <input type="text" id="typeExp" name = "expirationDate" class="form-control form-control-lg" placeholder="MM/YY"
+                              size="7" id="exp" minlength="5" maxlength="7" required="required"/>
                             <label class="form-label" for="typeExp">Expiration Date</label>
                           </div>
                         </div>
                         <div class="col-12 col-xl-6">
                           <div class="form-outline mb-4 mb-xl-5">
-                            <input type="text" id="typeText" class="form-control form-control-lg" size="17"
-                              placeholder="191919221999" minlength="10" maxlength="15" />
+                            <input type="text" id="typeText" name= "cardNumber" class="form-control form-control-lg" size="17"
+                              placeholder="1919192219" minlength="8" maxlength="10" required="required"/>
                             <label class="form-label" for="typeText">Card Number</label>
                           </div>
                         </div>
@@ -128,15 +133,15 @@
                         <p class="mb-2">Total (tax included):</p>
                         <p class="mb-2">${{ totals['total'] }}</p>
                       </div>
-      
-                      <button type="button" action="submit" class="btn btn-success btn-block btn-lg">
+                      <button type="submit" class="btn btn-success btn-block btn-lg">
                         <div class="d-flex justify-content-between">
                           <span>Purchase Now</span>
                           <span>${{ totals['total'] }}</span>
                         </div>
                       </button>
                     </div>
-                  </div>
+                </div>
+              </form>
                 </div>
               </div>
             </div>
