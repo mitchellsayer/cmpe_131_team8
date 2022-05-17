@@ -20,7 +20,7 @@ class Listing(db.Model):
     stock = db.Column(db.Integer)
 
 class Purchase(db.Model):
-    purchaseID = db.Column(db.Integer, unique=True)
+    purchaseID = db.Column(db.Integer, primary_key=True)
     productID = db.Column(db.Integer)
     buyerUserID = db.Column(db.Integer)
     sellerUserID = db.Column(db.Integer)
@@ -28,4 +28,4 @@ class Purchase(db.Model):
     quantity = db.Column(db.Integer)
     total = db.Column(db.Float)
     image = db.Column(db.String(100))
-    purchase_date = db.Column(db.DateTime, default=datetime.utcnow, primary_key=True)
+    purchase_date = db.Column(db.DateTime, default=datetime.utcnow)
