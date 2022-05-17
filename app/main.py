@@ -40,19 +40,15 @@ def listings():
     flash_id = request.args.get('id')
     # other_listings = Listing.query.filter(Listing.userID != current_user.id)
 
-    search_entry = request.form.get('Search')
+    search_entry = request.form.get('search-txt')
     price_filter = request.form.get('price_filter')
-    high2low = request.form.get('high2low')
-    low2high = request.form.get('low2high')
-    print(price_filter)
-    print(high2low)
-    print(low2high)
+    print(search_entry)
     if (search_entry == None or search_entry==''):
-        if high2low:
+        if price_filter=='high2low':
             print("high2low")
             all_listings = Listing.query.order_by(Listing.price.desc()).all()
             print(all_listings)
-        elif low2high:
+        elif price_filter=='low2high':
             print("low2high")
             all_listings = Listing.query.order_by(Listing.price.asc()).all()
             print(all_listings)
@@ -60,9 +56,9 @@ def listings():
             all_listings = Listing.query.all()
 
     else:
-        if high2low:
+        if price_filter=='high2low':
             all_listings = Listing.query.filter_by(name = search_entry).order_by(Listing.price.desc()).all()
-        elif low2high:
+        elif price_filter=='low2high':
             all_listings = Listing.query.filter_by(name = search_entry).order_by(Listing.price.asc()).all()
         else:
             all_listings = Listing.query.filter(Listing.name == search_entry)
