@@ -12,3 +12,8 @@ body {
     margin: auto;
     text-align: center;
 }
+
+.scrollable{
+    overflow-y: auto;
+    max-height: 200px;
+  }
