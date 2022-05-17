@@ -10,15 +10,16 @@ from flask_login import login_required, current_user
 from flask_mail import Message
 from werkzeug.utils import secure_filename
 
-from .models import Listing
+from .models import Listing, Purchase
 from . import db, mail, ALLOWED_EXTENSIONS, UPLOAD_FOLDER
 
 main = Blueprint('main', __name__)
 
 # --------- Helper Functions ---------
 def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    if '.' not in filename:
+        return False
+    return (filename.split('.')[-1].lower() in ALLOWED_EXTENSIONS)
 
 def unique_id():
     seed = random.getrandbits(32)
@@ -44,6 +45,7 @@ def validate_card(card_number_str):
     isOdd=True
     processCardNumber=[]
     digit_char_list = list(card_number_str)
+
     for x in reversed(digit_char_list):
         x=int(x)
         if (isOdd):
@@ -53,7 +55,9 @@ def validate_card(card_number_str):
             processCardNumber.append(doubleVariable)    
         else:
             processCardNumber.append(x)
+
         isOdd=not isOdd
+
     card_sum = sum(processCardNumber)
     return (card_sum % 10 == 0)
 
@@ -93,13 +97,18 @@ def index():
 @main.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', name=current_user.name, email=current_user.email)
+    user_purchases = Purchase.query.filter(Purchase.buyerUserID == current_user.id)
+    return render_template('profile.html', 
+                            name=current_user.name, 
+                            email=current_user.email,
+                            purchases=user_purchases)
 
 @main.route('/listings', methods=['POST','GET'])
 @login_required
 def listings():
     flash_id = request.args.get('id')
     all_listings = Listing.query.all()
+
     if request.method == "POST":
         search_entry = request.form.get('search-txt')
         price_filter = request.form.get('price_filter')
@@ -145,7 +154,8 @@ def new_listing_post():
         return redirect(request.url)
     file = request.files['file']
     
-    if (not (file and file.filename == '' and allowed_file(file.filename))):
+    if (not (file.filename != '' and allowed_file(file.filename))):
+        print(allowed_file(file.filename))
         flash('File not allowed')
         return redirect(request.url)
 
@@ -212,13 +222,26 @@ def purchase_post(productID):
         flash("Please enter a valid card!")
         return redirect(url_for('main.purchase', productID=productID) + f'?quantity={quantity}')
 
+    # Update Purchase table
+    totals = compute_purchase_totals(quantity, cur_listing.price)
+    purchase = Purchase(
+        productID = cur_listing.productID,
+        buyerUserID = current_user.id,
+        sellerUserID = cur_listing.userID,
+        name = cur_listing.name,
+        quantity = quantity,
+        total = totals['total'],
+        image = cur_listing.image)
+        
+    print(purchase)
+    db.session.add(purchase)
+    db.session.commit()
+
     # Update Listing table
     cur_listing.stock -= quantity
     if (cur_listing.stock <= 0):
         db.session.delete(cur_listing)
     db.session.commit()
-
-    # TODO: Update Purchase table
 
     # Send Confirmation Email
     sender_email = current_app.config['MAIL_USERNAME']
