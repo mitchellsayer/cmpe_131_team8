@@ -5,7 +5,7 @@ import datetime as dt
 import random
 import string
 
-from flask import Blueprint, render_template, request, redirect, url_for, flash, current_app
+from flask import Blueprint, render_template, request, redirect, url_for, flash, current_app, make_response
 from flask_login import login_required, current_user
 from flask_mail import Message
 from werkzeug.utils import secure_filename
@@ -93,6 +93,14 @@ def index():
     all_listings = Listing.query.all()
     images = [l.image for l in all_listings]
     return render_template('index.html', images=images)
+
+@main.route("/set")
+def set_theme(theme="light"):
+    theme = request.args.get('status')
+    print(theme)
+    res = make_response(redirect(url_for("index")))
+    res.set_cookie("theme", theme)
+    return res
 
 @main.route('/profile')
 @login_required
