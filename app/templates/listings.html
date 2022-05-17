@@ -8,8 +8,29 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="container mt-4">
-  <div class="row">
+  <div class="row justify-content-center" style="margin-bottom:5em;">
+    <div class="col-xs-8 col-xs-offset-2">
+        <form action="/listings" method="POST" id="searchForm" class="input-group">   
+          <div class="input-group-btn search-panel">
+            <select name="price_filter" id="search_param" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              <option value="low2high">Low to High</option>
+              <option value="high2low">High to Low</option>
+            </select>
+          </div>
+          <input type="text" class="form-control" name="search-txt" placeholder="Search term...">
+          <span class="input-group-btn">
+            <button class="btn btn-success" type="submit">
+              <span class="glyphicon glyphicon-search"></span>
+              Filter
+            </button>
+          </span>
+      </form>     
+    </div>     
+  </div>
+
+  <div class="row justify-content-center">
     {% for listing in listings %}
     <div class="col-auto mb-3">
       <div class="card" style="width: 18rem;">

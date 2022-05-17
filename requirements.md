@@ -91,10 +91,10 @@
 - **Trigger** User selects filter dropdown at top of "Listings" page
 
 - **Primary Sequence**
-   1. User selects filter dropdown choice which organizes items based on price
-   2. Filter is applied when user selects "Apply Filter" option
+   1. On the left, in the filter dropdown, Users select "high to low" or "low to high".
+   2. Filter is applied when the user clicks apply filters.
 
-- **Primary Postconditions** Items are sorted based on their price
+- **Primary Postconditions** The user can browse Listings more effectively based on price.
 
 
 ### 6. Post New Listing
