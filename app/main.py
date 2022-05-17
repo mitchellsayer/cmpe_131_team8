@@ -168,6 +168,10 @@ def purchase_post(productID):
     expirationDate = request.form.get('expirationDate')
     quantity = int(request.form.get('quantity'))
 
+    if (not cardOwner or not expirationDate or not cardNumber):
+        flash("Please fill out all fields")
+        return redirect(url_for('main.purchase', productID=productID) + f'?quantity={quantity}')
+
     # Validate Card
     validation = validate_card(cardNumber)
     if (not validation):
