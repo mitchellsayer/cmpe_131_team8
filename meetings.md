@@ -118,8 +118,8 @@
 	*LUHN algorithm has not been implemented, so class demo will rely on Matthew's algorithm
 
 2. Mitchell and Matthew worked together to reduce "Stock" of each item once it's been purchased<br>
-
 	*When item reaches stock of "0", item gets deleted from website
+	
 3. Matthew created Rojas Depot logo for "Home" page <br>
 	*Logo needs to match website's background color
 
@@ -152,8 +152,6 @@
 
 5. The team went over finalized version of Gantt Chart to ensure all deliverables were completed <br>
 	*Majority of requirements were completed ahead of schedule
-
-6. Final nonfunctional requirement "Dark Mode" was implemented <br>
-	*We decided to host it on user's profile page 
+ 
 
 
