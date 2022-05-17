@@ -40,9 +40,20 @@ def compute_purchase_totals(quantity, price):
     return totals
 
 def validate_card(card_number_str):
-    digits = [int(x) for x in list(card_number_str)]
-    card_sum = sum(digits)
-
+    isOdd=True
+    processCardNumber=[]
+    digit_char_list = list(card_number_str)
+    for x in reversed(digit_char_list):
+        x=int(x)
+        if (isOdd):
+            doubleVariable=2*x
+            if (doubleVariable > 9):
+                doubleVariable = doubleVariable//(10) + doubleVariable%(10)
+            processCardNumber.append(doubleVariable)    
+        else:
+            processCardNumber.append(x)
+        isOdd=not isOdd
+    card_sum = sum(processCardNumber)
     return (card_sum % 10 == 0)
 
 def get_email_confirmation_number(length):   
