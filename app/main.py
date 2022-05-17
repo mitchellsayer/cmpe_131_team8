@@ -89,31 +89,29 @@ def profile():
 def listings():
     flash_id = request.args.get('id')
     all_listings = Listing.query.all()
+    if request.method == "POST":
+        search_entry = request.form.get('search-txt')
+        price_filter = request.form.get('price_filter')
+        if (search_entry == None or search_entry==''):
+            if price_filter=='high2low':
+                print("high2low")
+                all_listings = Listing.query.order_by(Listing.price.desc()).all()
+                print(all_listings)
+            elif price_filter=='low2high':
+                print("low2high")
+                all_listings = Listing.query.order_by(Listing.price.asc()).all()
+                print(all_listings)
+            else:
+                all_listings = Listing.query.all()
 
-    search_entry = request.form.get('search-txt')
-    price_filter = request.form.get('price_filter')
-    if (search_entry == None or search_entry==''):
-        if price_filter=='high2low':
-            print("high2low")
-            all_listings = Listing.query.order_by(Listing.price.desc()).all()
-            print(all_listings)
-        elif price_filter=='low2high':
-            print("low2high")
-            all_listings = Listing.query.order_by(Listing.price.asc()).all()
-            print(all_listings)
         else:
-            all_listings = Listing.query.all()
-
-    else:
-        if price_filter=='high2low':
-            all_listings = Listing.query.filter_by(name = search_entry).order_by(Listing.price.desc()).all()
-        elif price_filter=='low2high':
-            all_listings = Listing.query.filter_by(name = search_entry).order_by(Listing.price.asc()).all()
-        else:
-            all_listings = Listing.query.filter(Listing.name == search_entry)
+            if price_filter=='high2low':
+                all_listings = Listing.query.filter_by(name = search_entry).order_by(Listing.price.desc()).all()
+            elif price_filter=='low2high':
+                all_listings = Listing.query.filter_by(name = search_entry).order_by(Listing.price.asc()).all()
+            else:
+                all_listings = Listing.query.filter(Listing.name == search_entry)
         
-    
-    
     return render_template('listings.html', listings = all_listings, id=flash_id)
 
 @main.route('/new_listing')
