@@ -7,6 +7,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     name = db.Column(db.String(1000))
+    purchases = db.Column()
 
 class Listing(db.Model):
     productID = db.Column(db.Integer, primary_key=True)
@@ -17,3 +18,7 @@ class Listing(db.Model):
     price = db.Column(db.Float)
     image = db.Column(db.String(100))
     stock = db.Column(db.Integer)
+class history(db.model):
+    id = db.Column(db.Integer,primary_key=True)
+    date = db.Column(db.String(10))
+    
