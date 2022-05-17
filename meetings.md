@@ -136,5 +136,24 @@
 2. Muhammad is tasked with updating README file's "How to Install" section with required libraries <br>
 	*He will peer-review file for grammatical errors 
 
-	
+### 2022-05-16-22 at 5:00 pm
+*Attendees: Muhammad, Matthew, Zander, Mitchell
+
+*Tasks:
+1. Mitchell helped Matthew finalize the Luhn algorithm for credit card validation <br>
+	*Algorithm accepts both debit and credit cards with min. of 13 digits and max. of 16 digits
+
+2. Muhammad populated website "Listings" page with various items <br>
+
+3. Zander went over the README file to fill out the "How to Use" section <br>
+	*He included "Search" and "Price Filter" options
+
+4. Mitchell managed pull requests, branch merges into master, and changed user's profile to display their purchased items <br>
+
+5. The team went over finalized version of Gantt Chart to ensure all deliverables were completed <br>
+	*Majority of requirements were completed ahead of schedule
+
+6. Final nonfunctional requirement "Dark Mode" was implemented <br>
+	*We decided to host it on user's profile page 
+
 

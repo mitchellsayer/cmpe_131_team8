@@ -22,7 +22,7 @@
 3. Proper Storage/Transmission
 4. Jinja Template Application
 5. Home Page Item Carousel
-6. User Profile w/ Item Listing
+6. User Profile w/ Item Purchases
 
 
 ## Use Cases
