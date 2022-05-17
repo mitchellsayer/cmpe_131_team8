@@ -1,28 +1,29 @@
 ## Functional Requirements
 
-1. User Login/Authentication
-2. User Logout
-3. Create User Account
-4. Delete User Account
-5. Search For Items
-6. Purchase Confirmation Email
-7. Select Item Quantity
-8. New Item Listing Form
-9. Additional Sales Tax
-10. View Purchase History
-11. Apply Price Filter
-12. Payment Card Validation
-13. View Item Listings
-14. Purchase Item Listing
+1. User Login/Authentication (MS)
+2. User Logout (MS)
+3. Create User Account (MS)
+4. Delete User Account (MM)
+5. Search For Items (ZG)
+6. Purchase Confirmation Email (MA)
+7. Select Item Quantity (MM)
+8. New Item Listing Form (ZG)
+9. Additional Sales Tax (MS)
+10. View Purchase History (MS)
+11. Apply Price Filter (ZG)
+12. Payment Card Validation (MM)
+13. User Account Page (ZG)
+14. Purchase Item Listing (MS)
+15. Item Listing Page (MS)
 
 ## Non-functional Requirements
 
-1. Denial of Payment Card (Card Validation)
-2. Site-Wide "Dark Mode"
-3. Proper Storage/Transmission
-4. Jinja Template Application
-5. Home Page Item Carousel
-6. User Profile w/ Item Purchases
+1. Denial of Payment Card (MM)
+2. Site-Wide "Dark Mode" (MS)
+3. Proper Storage/Transmission (MS)
+4. Jinja Template Application (MS/ZG/MA/MM)
+5. Home Page Item Carousel (MA)
+6. User Profile w/ Item Purchases (MS)
 
 
 ## Use Cases
