@@ -19,7 +19,7 @@
 ## Non-functional Requirements
 
 1. Denial of Payment Card (MM)
-2. Site-Wide "Dark Mode" (MS)
+2. Mobile Compatible Webpages (MS)
 3. Proper Storage/Transmission (MS)
 4. Jinja Template Application (MS/ZG/MA/MM)
 5. Home Page Item Carousel (MA)
