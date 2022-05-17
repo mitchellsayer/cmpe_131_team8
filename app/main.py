@@ -5,7 +5,7 @@ import datetime as dt
 import random
 import string
 
-from flask import Blueprint, render_template, request, redirect, url_for, flash, current_app
+from flask import Blueprint, render_template, request, redirect, url_for, flash, current_app, make_response
 from flask_login import login_required, current_user
 from flask_mail import Message
 from werkzeug.utils import secure_filename
@@ -93,6 +93,14 @@ def index():
     all_listings = Listing.query.all()
     images = [l.image for l in all_listings]
     return render_template('index.html', images=images)
+
+@main.route("/set")
+def set_theme(theme="light"):
+    theme = request.args.get('status')
+    print(theme)
+    res = make_response(redirect(url_for("index")))
+    res.set_cookie("theme", theme)
+    return res
 
 @main.route('/profile')
 @login_required
@@ -218,6 +226,7 @@ def purchase_post(productID):
 
     # Validate Card
     validation = validate_card(cardNumber)
+    print(f'validation for {cardNumber}: {validation}')
     if (not validation):
         flash("Please enter a valid card!")
         return redirect(url_for('main.purchase', productID=productID) + f'?quantity={quantity}')
@@ -225,6 +234,7 @@ def purchase_post(productID):
     # Update Purchase table
     totals = compute_purchase_totals(quantity, cur_listing.price)
     purchase = Purchase(
+        purchaseID = next(unique_id()),
         productID = cur_listing.productID,
         buyerUserID = current_user.id,
         sellerUserID = cur_listing.userID,

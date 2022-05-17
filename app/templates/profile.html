@@ -44,6 +44,26 @@
             <h4>{{name}}</h4>
             <p class="text-secondary mb-1">{{email}}</p>
             <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+            <input type="checkbox" class='toggle' checked data-toggle="toggle">
+            <div class='status'>Light</div>
+            <script>
+              $(document).ready(function() {
+               $('.toggle').click(function() {
+                var current_status = $('.status').text();
+                $.ajax({
+                 url: "/theme",
+                 type: "get",
+                  data: {status: current_status},
+                  success: function(response) {
+                   $(".status").html(response);
+                  },
+                  error: function(xhr) {
+                   //Do Something to handle error
+                  }
+                });
+               });
+             });
+             </script>
             <a href="{{ url_for('auth.delete') }}"class="btn btn-primary">Delete Account</a>
           </div>
         </div>
