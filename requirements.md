@@ -22,7 +22,7 @@
 3. Proper Storage/Transmission
 4. Jinja Template Application
 5. Home Page Item Carousel
-6. User Profile w/ Item Listing
+6. User Profile w/ Item Purchases
 
 
 ## Use Cases
@@ -109,3 +109,5 @@
 
 - **Primary Postconditions:** New item listing will be visible to all users
 - **Alternate Sequence:** User simply clicks on a different website tab to void any listing they attempted to post
+
+
