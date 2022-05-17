@@ -179,6 +179,12 @@ def purchase_post(productID):
     expirationDate = request.form.get('expirationDate')
     quantity = int(request.form.get('quantity'))
 
+    # Validate Card
+    validation = validate_card(cardNumber)
+    if (not validation):
+        flash("Please enter a valid card!")
+        return redirect(url_for('main.purchase', productID=productID) + f'?quantity={quantity}')
+
     # Update Listing table
     cur_listing.stock -= quantity
     if (cur_listing.stock <= 0):
@@ -186,12 +192,6 @@ def purchase_post(productID):
     db.session.commit()
 
     # TODO: Update Purchase table
-
-    # Validate Card
-    validation = validate_card(cardNumber)
-    if (not validation):
-        flash("Please enter a valid card!")
-        return redirect(url_for('main.purchase', productID=productID) + f'?quantity={quantity}')
 
     # Send Confirmation Email
     sender_email = current_app.config['MAIL_USERNAME']
