@@ -41,7 +41,7 @@ def create_app():
     login_manager.init_app(app)
 
     with app.app_context():
-        from .models import User, Listing
+        from .models import User, Listing, Purchase
         from .auth import auth as auth_blueprint
         from .main import main as main_blueprint
 

@@ -10,7 +10,7 @@
 {% block content %}
 <div class="row">
   <div style="margin-top: 2em;" class="border-right border-dark align-items-center text-center col-8">
-    <h1>Your Listings</h1>
+    <h1>Your Purchases</h1>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
           <div class="text-success">
@@ -18,6 +18,22 @@
           </div>
       {% endif %}
     {% endwith %}
+    {% for purchase in purchases %}
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+              <div class="col-sm-4 purchase-item">
+                <img src="{{ url_for('static', filename='images/'+purchase.image) }}" style="max-height: 100px;"alt="Card image cap">
+              </div>
+              <div class="col-sm-2 purchase-item">Item: {{purchase.name}}</div>
+              <div class="col-sm-2 purchase-item">Brand: {{purchase.brand}}</div>
+              <div class="col-sm-2 purchase-item">Quantity: {{purchase.quantity}}</div>
+              <div class="col-sm-2 purchase-item">Total: ${{purchase.total}}</div>
+          </div>
+          <p style="margin-left: 10em; margin-top: -2em">Purchase date: {{purchase.purchase_date}}</p>
+        </div>
+      </div>
+    {% endfor %}
   </div>
   <div class="d-flex justify-content-center col-4">
     <div class="card" style="margin-top: 2em;">
